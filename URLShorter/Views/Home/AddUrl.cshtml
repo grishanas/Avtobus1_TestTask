@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "AddUrl";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="text-center">
+    <form method="POST" action="~/Home/AddNewUrl">
+        <label>Полный URL</label>
+        <input type="text" name="FullUrl"/><br/>
+        <input type="submit" value="Отправить"/>
+    </form>
+    <br/>
+</div>

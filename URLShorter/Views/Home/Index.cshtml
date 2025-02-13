@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Domain.UrlInfo>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <div style="display: flex;flex-direction:column">
+        <div style="display: flex; justify-content: space-between;flex: 0 0 10px;">
+            <p style="flex: 0 0 200px;">Полный URL</p>
+            <p tyle="flex: 0 0 200px">Короткий URL</p>
+            <p tyle="flex: 0 0 200px">Время Создания</p>
+            <p tyle="flex: 0 0 200px">Количество переходов</p>
+            <p tyle="flex: 0 0 200px">Удалить объект</p>
+   
+        </div>
+ 
+        @foreach (var item in Model)
+        {
+            <div style="display: flex; justify-content: space-between;">
+                <div style="flex: 0 0 300px">@item.Url</div>
+                <div style="flex: 0 0 200px">
+                @item.shortUrl
+            </div>
+                <div style="flex: 0 0 200px">
+                @item.DateCreation
+            </div>
+                <div style="flex: 0 0 300px">
+                @item.ClicksNumber
+            </div>
+              
+                <div style="flex: 0 0 100px">
+                    <form method="POST" action="~/Home/DeleteUrl">
+                        <input type="hidden" value="@item.shortUrl" name="ID" />
+                        <input type="submit" value="Удалить"/>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+    
+
+</body>
